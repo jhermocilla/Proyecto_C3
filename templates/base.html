@@ -20,7 +20,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item" >
-                            <a class="nav-link active" aria-current="page" href="">Cartelera</a>
+                            <a class="nav-link active" aria-current="page" href="{{url_for('index')}}">Cartelera</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Estrenos</a>
@@ -36,19 +36,39 @@
                         </form>
                         &nbsp;
                         &nbsp;
+                      
+                      {% if g.user %}
+
+                        <li><span>{{ g.user['usuario'] }}</span>
+                        <li><a href="/logout">Logout</a>
+                        
+                          
+                      {% else %}
                         <form class="d-block" role="button" action="/login">
                         <button class="btn btn-outline-success" data-bs-toggle="modal" type="submit">Ingresar</button>                 
                         </form>
+                        &nbsp;
+                        &nbsp;
+
+                        <form class="d-block" role="button" action="/login">
+                          <button class="btn btn-outline-success" data-bs-toggle="modal" type="submit">Registrarse</button>                 
+                          </form>
+                      {% endif %}
+
+
+
+
+                        
                     </div>
                 </div>
                 
             </nav>
         </div>
-    </div>
+    </div><br><br><br>
 
 
 {% block contenido %} {% endblock %}
-
+<br>
 
 <!-- Footer -->
 <footer class="text-center text-lg-start bg-light text-muted" >

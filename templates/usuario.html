@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block Titulo %}
+
+{% endblock %}
+{% block Contenido %}
+<form action="/loginC" method="post">
+    {{ form.hidden_tag()}}
+    <div>
+        {{form.user.label}}
+        <br>
+        {{form.user}}
+    </div>
+    <div>
+        {{form.password.label}}
+        <br>
+        {{form.password}}
+    </div>
+    <div>
+        {{form.enviar}}
+    </div>
+</form>
+{% endblock %}
